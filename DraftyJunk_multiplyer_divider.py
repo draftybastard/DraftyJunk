@@ -3,26 +3,29 @@
 # and return False - test and print if guess is "correct" and return True
 
 
-def check_guess(letter, guess):
+def check_guess(letter, guess, clicker):
+    while clicker == False:
+        if letter.isalpha() == False:
+            return False
+        elif letter.lower() > guess:
+            print("{} is too low ".format(guess))
+            clicker = False
+            return False
+        elif letter.lower() < guess:
+            print("{} is too high ".format(guess))
+            clicker = False
+            return False
+        elif letter.lower() == guess:
+            print("GET OUT OF MY HEAD! ")
+            clicker = True
+            return True
+        else:
+            print("I don't know how you did what you did, but it ain't right. ")
 
-    if letter.isalpha() == False:
-        return False
-    elif letter.lower() > guess:
-        print ("{} is too low ".format(guess))
-        return False
-    elif letter.lower() < guess:
-        print ("{} is too high ".format(guess))
-        return False
-    elif letter.lower() == guess:
-        print("GET OUT OF MY HEAD! ")
-        return True
-    else:
-        print("I don't know how you did what you did, but it ain't right. ")
-
-
+clicker = False
 letter = "d"
 print("We're gonna play a real stupid game...")
 print("We're gonna guess some fucking letters, bro!")
 guess_out = input("What's your letter?")
-print(check_guess(letter, guess_out))
+print(check_guess(letter, guess_out, clicker))
 

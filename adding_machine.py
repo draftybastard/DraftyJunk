@@ -15,27 +15,24 @@
 # i.e for every number in talley: print number
 
 
-def adding_machine(output_type):
-    number = ""  # our variable for user input number
-    talley = []  # Using a list to utilize the .add function, will explore using string methods once running
-    while output_type.lower == 'a':  # setting the more info heavy output as default
-        number = input("Input any whole number, |q| to quit")
+def adding_machine(report='t'):  # T prints only total, A prints all numbers, followed by total
+    number = ""
+    talley = 0
+    while report.lower() == 't':
+        number = input("Input an integer or \"q\" to quit")
         if number.isnumeric():
-            number = int(number)
-            talley.append(number)
+            talley += int(number)
         elif number.isalpha():
-            if number.lower() != 'q':
-                print("Not so fast, bub")
+            if number.lower() == "q":  # Put print logic in here once the skeleton is done
+                print(talley)
             else:
-                break
-        elif number.isalnum():
-            print("Like, no?")
+                print(number)
 
 
-adding_machine('a')
-
-
-
-
-
+user_option = input("Are we looking for a full receipt or just the total? [1] Full Tally, [2] Total only \n")  #Make
+#  This into a fucking loop!  We're gonna loop the world boyee!
+if user_option == "1":
+    adding_machine('a')
+else:
+    adding_machine('t')
 
